@@ -49,14 +49,14 @@ info "Pulling latest changes from origin..."
 git pull origin main
 success "'main' branch is up to date."
 
-# Create release branch
-info "Creating git branch: $BRANCH"
-git checkout -b "$BRANCH"
-
 # Build the project
 info "Running build..."
 npm run build
 success "Build completed."
+
+# Create release branch
+info "Creating git branch: $BRANCH"
+git checkout -b "$BRANCH"
 
 # Stage and commit
 info "Staging changes..."
