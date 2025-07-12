@@ -1,5 +1,5 @@
 import { API, API_PATH } from "../common/constants/apiConstants";
-import { controller } from "../common/controllerWrapper";
+import { controller } from "../controller/mainController";
 import { RequestHelper } from "../common/requestHelper";
 
 import {

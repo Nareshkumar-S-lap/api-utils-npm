@@ -7,7 +7,7 @@ export const unauthorized = () => Boom.unauthorized("Invalid token");
 
 const verifyToken = (token: string) => {
   try {
-    const user = LocalAuth.verifyUser(token);
+    const user = LocalAuth.verifyToken(token);
     return { isValid: true, credentials: { token }, artifacts: { user } };
   } catch (err: any) {
     logger.error(`Token validation failed: ${err.message}`);

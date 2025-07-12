@@ -1,7 +1,7 @@
 import { Request, ResponseToolkit, ResponseObject } from "@hapi/hapi";
-import { RequestHelper } from "./requestHelper";
-import BaseController from "./baseController";
-import Performance from "./performance";
+import { RequestHelper } from "../common/requestHelper";
+import BaseController from "../common/baseController";
+import Performance from "../common/performance";
 
 // Defines the shape of the business logic function to be injected into the controller
 export type BusinessLogicFn = (helper: RequestHelper) => Promise<any>;
