@@ -1,0 +1,16 @@
+*.ts
+*.tsx
+!lib/**/*.d.ts
+!lib/**/*.js
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+__tests__/
+node_modules/
+coverage/
+.git/
+.gitignore
+.vscode/
+.env
+.env.*
