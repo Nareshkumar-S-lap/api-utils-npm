@@ -12,9 +12,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,         // ✅ emit .d.ts files
-    "declarationMap": false,     // ❌ no .d.ts.map
-    "sourceMap": false           // ❌ no .js.map
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false
   },
   "include": ["src"],
   "exclude": ["node_modules", "lib"]
