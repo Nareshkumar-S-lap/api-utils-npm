@@ -14,3 +14,7 @@ coverage/
 .vscode/
 .env
 .env.*
+
+# shell scripts
+*.sh
+
