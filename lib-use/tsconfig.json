@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "lib": ["ES2022"],
+    "moduleResolution": "node",
+    "outDir": "./lib",
+    "rootDir": "./", 
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,         // ✅ emit .d.ts files
+    "declarationMap": false,     // ❌ no .d.ts.map
+    "sourceMap": false           // ❌ no .js.map
+  },
+}
