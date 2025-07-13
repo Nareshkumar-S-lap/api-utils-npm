@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nareshorg/api-utils": "^1.0.40"
+    "@nareshorg/api-utils": "^1.0.41"
   },
   "devDependencies": {
     "@types/config": "^3.3.5",
