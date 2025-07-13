@@ -1,13 +1,16 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "changelog": "auto-changelog -p"
+    "changelog": "auto-changelog -p",
+    "lint": "eslint \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "files": [
     "lib",
@@ -29,7 +32,10 @@
     "bunyan": "^1.8.15",
     "bunyan-format": "^0.2.1",
     "chalk": "^5.4.1",
-    "dotenv": "^17.2.0"
+    "dotenv": "^17.2.0",
+    "eslint": "^9.31.0",
+    "prettier": "^3.6.2",
+    "typescript-eslint": "^8.36.0"
   },
   "peerDependencies": {
     "@hapi/hapi": "^21.0.0",

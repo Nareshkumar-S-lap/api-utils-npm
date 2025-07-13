@@ -21,17 +21,11 @@ export class ErrorUtils {
     return Boom.conflict(message, data);
   }
 
-  static internal(
-    message = "Internal Server Error",
-    data: Record<string, any> = {}
-  ) {
+  static internal(message = "Internal Server Error", data: Record<string, any> = {}) {
     return Boom.internal(message, data);
   }
 
-  static notImplemented(
-    message = "Not Implemented",
-    data: Record<string, any> = {}
-  ) {
+  static notImplemented(message = "Not Implemented", data: Record<string, any> = {}) {
     return Boom.notImplemented(message, data);
   }
 }

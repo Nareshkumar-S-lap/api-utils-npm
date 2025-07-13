@@ -29,11 +29,7 @@ export class RequestHelper {
   }
 
   getQueryString(): string {
-    if (
-      this.request.url &&
-      this.request.url.search &&
-      this.request.url.search !== ""
-    ) {
+    if (this.request.url && this.request.url.search && this.request.url.search !== "") {
       return this.request.url.search.substring(1);
     }
     return "";
@@ -52,10 +48,6 @@ export class RequestHelper {
   }
 
   getUser(): any {
-    return (
-      this.request.auth &&
-      this.request.auth.artifacts &&
-      this.request.auth.artifacts.user
-    );
+    return this.request.auth && this.request.auth.artifacts && this.request.auth.artifacts.user;
   }
 }

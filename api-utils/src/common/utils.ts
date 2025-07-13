@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import libphonenumber, { PhoneNumberUtil } from "google-libphonenumber";
 import config from "config";
+import { logger } from "./logger";
 
 export class Utils {
   static uuid = (): string => uuidv4();
-  private static readonly phoneUtil: PhoneNumberUtil =
-    libphonenumber.PhoneNumberUtil.getInstance();
+  private static readonly phoneUtil: PhoneNumberUtil = libphonenumber.PhoneNumberUtil.getInstance();
 
   static isValidEmail(email: string): boolean {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -19,6 +19,7 @@ export class Utils {
       const parsedNumber = this.phoneUtil.parse(phoneNumber);
       return this.phoneUtil.isValidNumber(parsedNumber);
     } catch (error: any) {
+      logger.info("error-phonelib", error);
       return false;
     }
   }
@@ -28,10 +29,7 @@ export class Utils {
     errorMessage?: string;
   } {
     try {
-      const parsedPhoneNumber = this.phoneUtil.parse(
-        inputPhoneNumber,
-        config.get("defaultRegion")
-      );
+      const parsedPhoneNumber = this.phoneUtil.parse(inputPhoneNumber, config.get("defaultRegion"));
 
       // Format to E.164 without spaces
       const formattedPhoneNumber = this.phoneUtil.format(
@@ -48,7 +46,7 @@ export class Utils {
     } catch (error: any) {
       return {
         success: false,
-        errorMessage: error.message,
+        errorMessage: error.message
       };
     }
   }
@@ -63,20 +61,17 @@ export class Utils {
 
   static parse(number: string) {
     if (this.isValid(number)) {
-      const phoneNumber = this.phoneUtil.parseAndKeepRawInput(
-        number,
-        config.get("defaultRegion")
-      );
+      const phoneNumber = this.phoneUtil.parseAndKeepRawInput(number, config.get("defaultRegion"));
       return {
         mobile: `+${phoneNumber.getCountryCode()}${phoneNumber.getNationalNumber()}`,
         valid: true,
         countryCode: phoneNumber.getCountryCode(),
         nationalNumber: phoneNumber.getNationalNumber(),
-        rawInput: phoneNumber.getRawInput(),
+        rawInput: phoneNumber.getRawInput()
       };
     }
     return {
-      valid: false,
+      valid: false
     };
   }
 }

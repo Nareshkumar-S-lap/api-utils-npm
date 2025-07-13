@@ -1,4 +1,4 @@
-import { Request } from '@hapi/hapi';
+import { Request } from "@hapi/hapi";
 
 interface HeaderBuilderOptions {
   withAuth?: boolean;

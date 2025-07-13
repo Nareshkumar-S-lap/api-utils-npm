@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as Boom from "@hapi/boom";
 import { StatusCodes } from "http-status-codes";
 
@@ -37,16 +36,14 @@ const sendExternalApiErrors = (ex: any, errorMessages: any): Boom.Boom => {
     );
     return sendError(Boom.internal, errorMsg, errorMsg);
   }
-  const customErrorData = errorMessages.getErrorMessage(
-    exceptionResponse.status
-  );
+  const customErrorData = errorMessages.getErrorMessage(exceptionResponse.status);
   const customMessage =
     (customErrorData && customErrorData.message) ||
     exceptionResponse.data.message ||
     exceptionResponse.data.description;
   const err = new Boom.Boom(customMessage, {
     statusCode: exceptionResponse.status,
-    data: exceptionResponse.data,
+    data: exceptionResponse.data
   });
   return setDataInError(err, exceptionResponse.data);
 };
@@ -54,16 +51,10 @@ const sendExternalApiErrors = (ex: any, errorMessages: any): Boom.Boom => {
 /* eslint class-methods-use-this: ["error", { "exceptMethods": ["sendResponse"] }] */
 class BaseController {
   sendResponse(handler: any, response: any): any {
-    return handler
-      .response(response)
-      .type("application/json")
-      .code(StatusCodes.OK); // Use StatusCodes instead
+    return handler.response(response).type("application/json").code(StatusCodes.OK); // Use StatusCodes instead
   }
 
-  replyError(
-    ex: any,
-    errorMessages: CustomErrorMessages = new CustomErrorMessages()
-  ): Boom.Boom {
+  replyError(ex: any, errorMessages: CustomErrorMessages = new CustomErrorMessages()): Boom.Boom {
     logger.error(ex);
     errorMessages.addErrorMessage(
       StatusCodes.INTERNAL_SERVER_ERROR, // Use StatusCodes instead

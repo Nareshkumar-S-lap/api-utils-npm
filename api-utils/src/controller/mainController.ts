@@ -1,4 +1,4 @@
-import { Request, ResponseToolkit, ResponseObject } from "@hapi/hapi";
+import { Request, ResponseToolkit } from "@hapi/hapi";
 import { RequestHelper } from "../common/requestHelper";
 import BaseController from "../common/baseController";
 import Performance from "../common/performance";
@@ -22,9 +22,7 @@ export const controller = (businessLogic: BusinessLogicFn) => {
     const base = new BaseController();
 
     // Start performance tracking for the current request
-    const perf = new Performance(
-      `${request.method.toUpperCase()} ${request.path}`
-    );
+    const perf = new Performance(`${request.method.toUpperCase()} ${request.path}`);
 
     try {
       const result = await businessLogic(requestHelper);
