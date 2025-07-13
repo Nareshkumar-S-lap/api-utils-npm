@@ -1,8 +1,5 @@
-import { ServerRoute } from '@hapi/hapi';
-import * as healthRoutes from '../src/modules/health/route';
+import { assembleRoutes } from "@nareshorg/api-utils";
+import * as healthRoutes from "../src/modules/health/route";
 
-
-const routes: ServerRoute[] = [
-  ...healthRoutes.default,
-];
+const routes = assembleRoutes(healthRoutes);
 export default routes;
