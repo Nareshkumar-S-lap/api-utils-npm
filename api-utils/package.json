@@ -1,6 +1,6 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

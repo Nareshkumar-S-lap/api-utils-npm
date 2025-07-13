@@ -17,24 +17,24 @@ confirm_exit() {
   esac
 }
 
-# ========== INTERRUPT HANDLER ==========
 trap 'echo ""; error "Process interrupted."; confirm_exit' SIGINT
 
-# ========== VERSION BUMP ==========
+# ========== ARGUMENTS & DEFAULTS ==========
 
-BUMP_TYPE=$1
+BUMP_TYPE=${1:-patch}
+BRANCH_PREFIX=${2:-release}
 
-if [[ "$BUMP_TYPE" =~ ^(patch|minor|major)$ ]]; then
-  info "Bumping version: $BUMP_TYPE"
-  npm version "$BUMP_TYPE" --no-git-tag-version
-  success "Version bumped to $(node -p "require('./package.json').version")"
-else
-  error "Missing or invalid version bump type. Usage: ./npm-release.sh [patch|minor|major]"
+if [[ ! "$BUMP_TYPE" =~ ^(patch|minor|major)$ ]]; then
+  error "Invalid version bump type. Usage: ./npm-release.sh [patch|minor|major] [branch-prefix]"
   exit 1
 fi
 
+info "Bumping version: $BUMP_TYPE"
+npm version "$BUMP_TYPE" --no-git-tag-version
+success "Version bumped to $(node -p "require('./package.json').version")"
+
 VERSION=$(node -p "require('./package.json').version")
-BRANCH="release/v$VERSION"
+BRANCH="$BRANCH_PREFIX/v$VERSION"
 
 info "Starting release process for version v$VERSION"
 
@@ -61,8 +61,14 @@ success "Changelog generated."
 
 # ========== RELEASE BRANCH ==========
 
-info "Creating git branch: $BRANCH"
-git checkout -b "$BRANCH"
+info "Creating or switching to git branch: $BRANCH"
+if git show-ref --verify --quiet "refs/heads/$BRANCH"; then
+  git checkout "$BRANCH"
+  info "Checked out existing branch: $BRANCH"
+else
+  git checkout -b "$BRANCH"
+  success "Created new branch: $BRANCH"
+fi
 
 # ========== COMMIT AND TAG ==========
 
