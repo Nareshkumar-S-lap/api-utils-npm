@@ -1,12 +1,13 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.36",
+  "version": "1.0.38",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "changelog": "auto-changelog -p"
   },
   "files": [
     "lib",
@@ -54,6 +55,13 @@
     "@types/joi": "^17.2.2",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.13",
+    "auto-changelog": "^2.5.0",
     "typescript": "^5.8.3"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": false,
+    "commitLimit": false
   }
 }
