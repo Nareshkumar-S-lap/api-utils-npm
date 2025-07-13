@@ -60,7 +60,8 @@ export interface RouteBuilderOptions<T = any> {
    * }
    */
   config?: Partial<RouteOptions>;
-}
+} 
+
 
 /**
  * routeBuilder creates one or more standardized Hapi route definitions.
