@@ -1,9 +1,4 @@
-import jwt, {
-  JwtPayload,
-  SignOptions,
-  VerifyOptions,
-  Secret,
-} from "jsonwebtoken";
+import jwt, { JwtPayload, SignOptions, VerifyOptions, Secret } from "jsonwebtoken";
 
 /**
  * LocalAuth class handles JWT token signing and verification.

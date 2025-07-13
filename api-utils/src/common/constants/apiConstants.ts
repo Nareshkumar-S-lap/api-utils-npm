@@ -10,7 +10,7 @@ export const API_METHODS: Partial<Record<RouteDefMethods, RouteDefMethods>> = {
   PUT: "PUT",
   DELETE: "DELETE",
   PATCH: "PATCH",
-  OPTIONS: "OPTIONS",
+  OPTIONS: "OPTIONS"
 };
 
 /**
@@ -22,7 +22,7 @@ export type AuthStrategy = string;
  * Object map for auth strategies.
  */
 export const STRATEGY: Record<AuthStrategy, AuthStrategy> = {
-  SIMPLE: "simple",
+  SIMPLE: "simple"
 };
 
 /**

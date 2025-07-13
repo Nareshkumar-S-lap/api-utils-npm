@@ -37,20 +37,20 @@ const Blipp = require("blipp") as { register: any; name: string }; // https://gi
 // List of plugins to register with the Hapi server
 export const plugins: ServerRegisterPluginObject<any>[] = [
   {
-    plugin: Inert, // Enables serving of static files (e.g., images, frontend apps) — https://github.com/hapijs/inert
+    plugin: Inert // Enables serving of static files (e.g., images, frontend apps) — https://github.com/hapijs/inert
   },
   {
-    plugin: Vision, // Enables template rendering, required for Swagger UI — https://github.com/hapijs/vision
+    plugin: Vision // Enables template rendering, required for Swagger UI — https://github.com/hapijs/vision
   },
   {
-    plugin: HapiAuthBearerToken, // Adds Bearer Token authentication strategy — https://github.com/johnbrett/hapi-auth-bearer-token
+    plugin: HapiAuthBearerToken // Adds Bearer Token authentication strategy — https://github.com/johnbrett/hapi-auth-bearer-token
   },
   {
     plugin: Blipp, // Logs all registered routes to the console at startup — https://github.com/danielb2/blipp
-    options: { showAuth: true },
+    options: { showAuth: true }
   },
   {
     plugin: HapiSwagger, // Auto-generates Swagger (OpenAPI) API documentation — https://github.com/glennjones/hapi-swagger
-    options: SWAGGER,
-  },
+    options: SWAGGER
+  }
 ];

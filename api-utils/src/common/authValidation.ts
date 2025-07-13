@@ -22,5 +22,5 @@ const validate = (token: string) => {
 
 export const tokenValidator = {
   validate: (req: Request, token: string) => validate(token),
-  unauthorized,
+  unauthorized
 };

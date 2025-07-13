@@ -4,7 +4,7 @@ import config from "config";
 
 const loggerFormat = bunyanFormat({
   outputMode: "bunyan",
-  levelInString: true,
+  levelInString: true
 });
 
 // create a logger instance
@@ -12,5 +12,5 @@ export const logger = bunyan.createLogger({
   name: config.get("app.name"),
   stream: loggerFormat,
   level: config.get("app.logLevel"),
-  serializers: bunyan.stdSerializers,
+  serializers: bunyan.stdSerializers
 });

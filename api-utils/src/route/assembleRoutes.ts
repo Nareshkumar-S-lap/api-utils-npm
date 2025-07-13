@@ -10,7 +10,5 @@ import { ServerRoute } from "@hapi/hapi";
 export const assembleRoutes = (
   ...modules: Array<ServerRoute[] | { default: ServerRoute[] }>
 ): ServerRoute[] => {
-  return modules.flatMap((mod) =>
-    Array.isArray(mod) ? mod : mod.default || []
-  );
+  return modules.flatMap((mod) => (Array.isArray(mod) ? mod : mod.default || []));
 };

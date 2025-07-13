@@ -18,7 +18,7 @@ class Performance {
       event: "end",
       duration: end - this.start,
       start: this.start,
-      end,
+      end
     });
   }
 }

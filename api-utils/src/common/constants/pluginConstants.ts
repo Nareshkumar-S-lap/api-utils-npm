@@ -16,12 +16,12 @@ import config from "config";
 export const SWAGGER: HapiSwagger.RegisterOptions = {
   info: {
     title: "API Documentation",
-    version: config.get<string>("version"), // Retrieves version from your config system
+    version: config.get<string>("version") // Retrieves version from your config system
   },
   tags: [
     {
       name: "register", // Used as a grouping label in Swagger UI
-      description: "Users registration", // Description shown in the UI
-    },
-  ],
+      description: "Users registration" // Description shown in the UI
+    }
+  ]
 };

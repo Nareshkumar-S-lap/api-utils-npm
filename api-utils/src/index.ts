@@ -21,12 +21,7 @@ export { controller } from "./controller/mainController";
 export type { BusinessLogicFn } from "./controller/mainController";
 
 //  API constants: base path, methods, tags, etc.
-export {
-  API,
-  API_PATH,
-  API_METHODS,
-  STRATEGY,
-} from "./common/constants/apiConstants";
+export { API, API_PATH, API_METHODS, STRATEGY } from "./common/constants/apiConstants";
 
 // Core authentication utilities (e.g., JWT/session decoding)
 export { Auth } from "./common/auth";

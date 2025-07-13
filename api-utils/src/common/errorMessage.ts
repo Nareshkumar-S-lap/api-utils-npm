@@ -10,10 +10,7 @@ class ErrorMessages {
     this.errorMessagesMap = new Map(
       data
         .filter((item) => item && item.status && item.message)
-        .map(
-          (item) =>
-            [item.status, { message: item.message }] as [number, ErrorMessage],
-        ),
+        .map((item) => [item.status, { message: item.message }] as [number, ErrorMessage])
     );
   }
 
