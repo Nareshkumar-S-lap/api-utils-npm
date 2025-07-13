@@ -1,16 +1,17 @@
 import config from "config";
-import type { RouteDefMethods } from "@hapi/hapi"; // ✅ Correct type for defining route method maps
-
 /**
  * Object map for API methods, fully typed.
  */
-export const API_METHODS: Partial<Record<RouteDefMethods, RouteDefMethods>> = {
+export type HapiRouteMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "OPTIONS" | "HEAD";
+
+export const API_METHODS: Record<HapiRouteMethod, HapiRouteMethod> = {
   GET: "GET",
   POST: "POST",
   PUT: "PUT",
   DELETE: "DELETE",
   PATCH: "PATCH",
-  OPTIONS: "OPTIONS"
+  OPTIONS: "OPTIONS",
+  HEAD: "HEAD"
 };
 
 /**
