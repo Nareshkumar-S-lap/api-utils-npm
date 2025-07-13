@@ -2,7 +2,7 @@ import config from "config";
 /**
  * Object map for API methods, fully typed.
  */
-export type HapiRouteMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "OPTIONS" | "HEAD";
+export type HapiRouteMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "OPTIONS" ;
 
 export const API_METHODS: Record<HapiRouteMethod, HapiRouteMethod> = {
   GET: "GET",
@@ -10,8 +10,7 @@ export const API_METHODS: Record<HapiRouteMethod, HapiRouteMethod> = {
   PUT: "PUT",
   DELETE: "DELETE",
   PATCH: "PATCH",
-  OPTIONS: "OPTIONS",
-  HEAD: "HEAD"
+  OPTIONS: "OPTIONS"
 };
 
 /**

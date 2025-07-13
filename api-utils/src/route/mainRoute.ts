@@ -1,6 +1,6 @@
 import { RouteOptions, ServerRoute, RouteDefMethods } from "@hapi/hapi";
 import { RequestHelper } from "../common/requestHelper";
-import { API, API_PATH } from "../common/constants/apiConstants";
+import { API, API_PATH, HapiRouteMethod } from "../common/constants/apiConstants";
 import { controller } from "../controller/mainController";
 
 export interface RouteBuilderOptions<T = any> {
@@ -11,7 +11,7 @@ export interface RouteBuilderOptions<T = any> {
    * @example 'GET'
    * @example ['GET', 'POST']
    */
-  method: RouteDefMethods | RouteDefMethods[];
+  method: HapiRouteMethod | HapiRouteMethod[];
 
   /**
    * The route path (relative). This will automatically be prefixed by `API_PATH`.
@@ -60,8 +60,7 @@ export interface RouteBuilderOptions<T = any> {
    * }
    */
   config?: Partial<RouteOptions>;
-} 
-
+}
 
 /**
  * routeBuilder creates one or more standardized Hapi route definitions.
