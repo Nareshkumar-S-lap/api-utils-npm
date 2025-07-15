@@ -51,6 +51,12 @@ info "Running build..."
 npm run build
 success "Build completed."
 
+# ========== TEST ==========
+
+info "Running tests..."
+npm run test
+success "All tests passed."
+
 # ========== CHANGELOG ==========
 
 info "Generating changelog..."

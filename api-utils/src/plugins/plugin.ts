@@ -5,7 +5,7 @@ import * as Vision from "@hapi/vision"; // https://github.com/hapijs/vision
 import * as HapiSwagger from "hapi-swagger"; // https://github.com/glennjones/hapi-swagger
 import * as HapiAuthBearerToken from "hapi-auth-bearer-token"; // https://github.com/johnbrett/hapi-auth-bearer-token
 import { ServerRegisterPluginObject } from "@hapi/hapi/lib/types/plugin";
-import { SWAGGER } from "../common/constants/pluginConstants";
+import { SWAGGER } from "@common/constants/pluginConstants";
 const Blipp = require("blipp") as { register: any; name: string }; // https://github.com/danielb2/blipp
 
 /**

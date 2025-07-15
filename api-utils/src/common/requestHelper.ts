@@ -1,4 +1,4 @@
-import HeaderBuilder from "./headerBuilder";
+import HeaderBuilder from "@common/headerBuilder";
 import { Request } from "@hapi/hapi";
 
 export class RequestHelper {
