@@ -7,6 +7,21 @@ set -e  # Exit on error
 success() { echo -e "\033[1;32m[SUCCESS]\033[0m $1"; }
 error()   { echo -e "\033[1;31m[ERROR]\033[0m $1"; }
 info()    { echo -e "\033[1;34m[INFO]\033[0m $1"; }
+# Print clickable links in supported terminals, fallback to plain URL otherwise
+print_link() {
+  local label="$1"
+  local url="$2"
+
+  # If terminal supports hyperlinks (like VSCode, iTerm2, modern bash):
+  if [ -n "$TERM_PROGRAM" ] || [ -n "$VSCODE_GIT_IPC_HANDLE" ]; then
+    echo -e "\033[1;34m[INFO]\033[0m $label:"
+    echo -e "\033]8;;$url\033\\$url\033]8;;\033\\"
+  else
+    # Fallback: plain URL
+    echo "[INFO] $label:"
+    echo "$url"
+  fi
+}
 
 confirm_exit() {
   echo ""
@@ -114,17 +129,13 @@ REPO_URL=$(node -p "require('./package.json').repository.url || ''" | sed -e 's/
 
 if [[ "$REPO_URL" == https://github.com/* ]]; then
   echo ""
-  info "View release branch:"
-  echo "$REPO_URL/tree/$BRANCH"
 
-  info "View tag:"
-  echo "$REPO_URL/releases/tag/v$VERSION"
+  print_link "View release branch" "$REPO_URL/tree/$BRANCH"
+  print_link "View tag" "$REPO_URL/releases/tag/v$VERSION"
+  print_link "Create a Pull Request" "$REPO_URL/compare/main...$BRANCH?expand=1"
 
-  info "Create a Pull Request:"
-  echo "$REPO_URL/compare/main...$BRANCH?expand=1"
-
-  exit 0  # ✅ Exit script here
+  exit 0
 else
-  info "No valid GitHub repository URL found in package.json"
-  exit 1  # ❌ Exit with error if repo URL is not valid
+  echo "[ERROR] No valid GitHub repository URL found in package.json"
+  exit 1
 fi
