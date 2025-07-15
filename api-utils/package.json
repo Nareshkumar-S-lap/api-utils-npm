@@ -1,6 +1,6 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.43",
+  "version": "1.0.45",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -12,7 +12,8 @@
     "changelog": "auto-changelog -p",
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "publish": "bash npm-publish.sh"
   },
   "files": [
     "lib",
@@ -74,5 +75,13 @@
     "template": "keepachangelog",
     "unreleased": false,
     "commitLimit": false
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nareshkumar-S-lap/api-utils-npm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nareshkumar-S-lap/api-utils-npm/issues"
+  },
+  "homepage": "https://github.com/Nareshkumar-S-lap/api-utils-npm#readme"
 }

@@ -1,5 +1,3 @@
-#!/bin/bash
-
 set -e  # Exit on error
 
 # ========== COMMON LOGGING FUNCTIONS ==========
@@ -108,3 +106,22 @@ success "Release process completed for v$VERSION."
 success "Branch created: $BRANCH"
 success "Tag created: v$VERSION"
 success "NPM package published successfully."
+
+
+# ========== LINKS & PR INFO ==========
+
+REPO_URL=$(node -p "require('./package.json').repository.url || ''" | sed -e 's/git+//' -e 's/\.git$//')
+
+if [[ "$REPO_URL" == https://github.com/* ]]; then
+  echo ""
+  info "View release branch:"
+  echo "$REPO_URL/tree/$BRANCH"
+
+  info "View tag:"
+  echo "$REPO_URL/releases/tag/v$VERSION"
+
+  info "Create a Pull Request:"
+  echo "$REPO_URL/compare/main...$BRANCH?expand=1"
+else
+  info "No valid GitHub repository URL found in package.json"
+fi
