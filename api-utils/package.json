@@ -1,11 +1,13 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "prepublishOnly": "npm run build",
     "changelog": "auto-changelog -p",
     "lint": "eslint \"src/**/*.{js,ts}\"",
@@ -58,10 +60,13 @@
     "@types/config": "^3.3.5",
     "@types/google-libphonenumber": "^7.4.30",
     "@types/hapi-auth-bearer-token": "^6.1.8",
+    "@types/jest": "^30.0.0",
     "@types/joi": "^17.2.2",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.13",
     "auto-changelog": "^2.5.0",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
     "typescript": "^5.8.3"
   },
   "auto-changelog": {

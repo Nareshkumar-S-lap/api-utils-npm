@@ -1,5 +1,5 @@
 import { performance } from "perf_hooks";
-import { logger } from "./logger";
+import { logger } from "@common/logger";
 
 class Performance {
   private service: string;

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import libphonenumber, { PhoneNumberUtil } from "google-libphonenumber";
 import config from "config";
-import { logger } from "./logger";
+import { logger } from "@common/logger";
 
 export class Utils {
   static uuid = (): string => uuidv4();

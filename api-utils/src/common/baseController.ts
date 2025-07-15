@@ -1,8 +1,7 @@
 import * as Boom from "@hapi/boom";
 import { StatusCodes } from "http-status-codes";
-
 import CustomErrorMessages from "./errorMessage";
-import { logger } from "./logger";
+import { logger } from "@common/logger";
 
 const setDataInError = (err: Boom.Boom, data?: any): Boom.Boom => {
   err.output.payload.details = data || err.data;

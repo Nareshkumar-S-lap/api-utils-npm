@@ -1,21 +1,68 @@
 {
   "compilerOptions": {
+    // Target modern JavaScript (ES2022)
     "target": "ES2022",
+
+    // Use CommonJS module system (Node.js compatible)
     "module": "commonjs",
+
+    // Include latest ECMAScript features in lib
     "lib": ["ES2022"],
+
+    // Resolve modules the Node.js way
     "moduleResolution": "node",
+
+    // Root directory of source files
+    "rootDir": ".",
+
+    // Output compiled files into 'lib' folder
     "outDir": "./lib",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
+
+    // Generate .d.ts type declarations
     "declaration": true,
+
+    // Don't generate .d.ts.map files
     "declarationMap": false,
-    "sourceMap": false
+
+    // Don't generate .js.map source maps
+    "sourceMap": false,
+
+    // Allow default imports from CommonJS modules
+    "esModuleInterop": true,
+
+    // Allow `import x from "x"` even if it's not a default export
+    "allowSyntheticDefaultImports": true,
+
+    // Enable importing JSON modules
+    "resolveJsonModule": true,
+
+    // Enable all strict type-checking options
+    "strict": true,
+
+    // Enforce consistent casing in imports across file systems
+    "forceConsistentCasingInFileNames": true,
+
+    // Skip type-checking of all declaration files (*.d.ts)
+    "skipLibCheck": true,
+
+    // Add global type definitions for Node and Jest
+    "types": ["node", "jest"],
+
+    // Set base import path to 'src' folder
+    "baseUrl": "./src",
+
+    // Define module import aliases for cleaner absolute paths
+    "paths": {
+      "@common/*": ["common/*"], // @common/logger → src/common/logger
+      "@controller/*": ["controller/*"], // @controller/foo → src/controller/foo
+      "@route/*": ["route/*"], // @route/main → src/route/main
+      "@plugins/*": ["plugins/*"] // @plugins/auth → src/plugins/auth
+    }
   },
+
+  // Include these folders/files for compilation
   "include": ["src"],
+
+  // Exclude these from compilation
   "exclude": ["node_modules", "lib"]
 }
