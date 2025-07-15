@@ -1,6 +1,6 @@
 {
   "name": "@nareshorg/api-utils",
-  "version": "1.0.46",
+  "version": "1.0.47",
   "description": "Lightweight utilities for Hapi route handling and request parsing",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,7 +13,7 @@
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\"",
     "format": "prettier --write \"src/**/*.ts\"",
-    "publish": "bash npm-publish.sh"
+    "release": "bash npm-publish.sh"
   },
   "files": [
     "lib",
